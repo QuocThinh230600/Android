@@ -38,18 +38,21 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
         if (viewHolder == null){
             convertView = LayoutInflater.from(mContext).inflate(mResource, parent, false);
             viewHolder = new ViewHolder();
-            viewHolder.linearLayoutTest     = convertView.findViewById(R.id.contact_detail_Test);
+            viewHolder.linearLayoutTest  = convertView.findViewById(R.id.contact_detail_Test);
             viewHolder.textViewName      = convertView.findViewById(R.id.contact_tv_name);
             viewHolder.textViewBirthday  = convertView.findViewById(R.id.contact_tv_birthday);
             viewHolder.textViewPhone     = convertView.findViewById(R.id.contact_tv_phone);
             viewHolder.textViewCode      = convertView.findViewById(R.id.contact_tv_code);
             viewHolder.textViewAddress   = convertView.findViewById(R.id.contact_tv_address);
             viewHolder.imageViewPhone    = convertView.findViewById(R.id.contact_item_imageViewPhone);
+            viewHolder.imageViewEdit     = convertView.findViewById(R.id.contact_item_imageViewEdit);
+            viewHolder.imageViewDelete   = convertView.findViewById(R.id.contact_item_imageViewDelete);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        ContactModel model= mList.get(position);
+        ContactModel model = mList.get(position);
+
         viewHolder.textViewName.setText(String.valueOf(model.getName()));
         viewHolder.textViewBirthday.setText(String.valueOf(model.getBirthday()));
         viewHolder.textViewPhone.setText(String.valueOf(model.getPhone()));
@@ -71,6 +74,20 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
                 mContext.startActivity(intent);
             }
         });
+        viewHolder.imageViewEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, EditContactActivity.class);
+                intent.putExtra("Update_Item", model);
+                mContext.startActivity(intent);
+            }
+        });
+        viewHolder.imageViewDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                remove(model);
+            }
+        });
 
         return convertView;
 
@@ -79,6 +96,8 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
     public class ViewHolder{
         LinearLayout linearLayoutTest;
         ImageView imageViewPhone;
+        ImageView imageViewEdit;
+        ImageView imageViewDelete;
         TextView textViewName;
         TextView textViewBirthday;
         TextView textViewPhone;

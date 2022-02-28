@@ -18,11 +18,7 @@ public class CreateContactActivity extends AppCompatActivity {
     EditText editPhone;
     EditText editCode;
     EditText editAddress;
-    String mName = "";
-    String mBirthday = "";
-    String mPhone = "";
-    String mCode = "";
-    String mAddress = "";
+    String mName = "", mBirthday = "", mPhone = "", mCode = "", mAddress = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
