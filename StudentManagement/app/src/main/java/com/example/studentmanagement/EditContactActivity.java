@@ -12,13 +12,9 @@ import com.example.studentmanagement.model.ContactModel;
 
 public class EditContactActivity extends AppCompatActivity {
 
-    EditText editName;
-    EditText editBirthday;
-    EditText editPhone;
-    EditText editCode;
-    EditText editAddress;
-    Button btnEditUpdate;
-    Button btnEditCancel;
+    int position = 0;
+    Button btnEditUpdate, btnEditCancel;
+    EditText editName, editBirthday, editPhone, editCode, editAddress;
     String mName = "", mBirthday = "", mPhone = "", mCode = "", mAddress = "";
 
     @Override
@@ -32,11 +28,9 @@ public class EditContactActivity extends AppCompatActivity {
         btnEditUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(onValidateForm()){
-                    int id = ContactActivity.modelList.get(ContactActivity.modelList.size()).getId();
-                    ContactModel model = new ContactModel(id, mName, mBirthday, mPhone, mCode, mAddress);
-                    ContactActivity.adapter.remove(model);
-                    ContactActivity.adapter.add(model);
+                ContactModel model = ValidateForm();
+                if(model != null){
+                    ContactActivity.modelList.add(position, model);
                     ContactActivity.adapter.notifyDataSetChanged();
                     finish();
                 }
@@ -51,51 +45,51 @@ public class EditContactActivity extends AppCompatActivity {
         });
     }
 
-    private boolean onValidateForm(){
+    private ContactModel ValidateForm(){
+        int id = ContactActivity.modelList.get(ContactActivity.modelList.size() - 1).getId() + 1;
+        mName     = editName.getText().toString();
+        mBirthday = editBirthday.getText().toString();
+        mPhone    = editPhone.getText().toString();
+        mCode     = editCode.getText().toString();
+        mAddress  = editAddress.getText().toString();
         String errorText = "null";
 
-        mName = editName.getText().toString();
         if(mName.length() < 1){
             editName.setError(errorText);
-            return false;
+            return null;
         }
-
-        mBirthday = editBirthday.getText().toString();
         if(mBirthday.length() < 1){
             editBirthday.setError(errorText);
-            return false;
+            return null;
         }
-
-        mPhone = editPhone.getText().toString();
         if(mPhone.length() < 1){
             editPhone.setError(errorText);
-            return false;
+            return null;
         }
-
-        mCode = editCode.getText().toString();
         if(mCode.length() < 1){
             editCode.setError(errorText);
-            return false;
+            return null;
         }
-
-        mAddress = editAddress.getText().toString();
         if(mAddress.length() < 1){
             editAddress.setError(errorText);
-            return false;
+            return null;
         }
 
-        return true;
+        ContactModel model = new ContactModel(id, mName, mBirthday, mPhone, mCode, mAddress);
+
+        return model;
     }
 
     private void onGetValue() {
         Intent intent = getIntent();
-        ContactModel item = (ContactModel) intent.getSerializableExtra("Update_Item");
+        position = intent.getIntExtra("POS",0);
+        ContactModel model = (ContactModel) intent.getSerializableExtra("Update_Item");
 
-        editName.setText(item.getName());
-        editBirthday.setText(item.getBirthday());
-        editPhone.setText(item.getPhone());
-        editCode.setText(item.getCode());
-        editAddress.setText(item.getAddress());
+        editName.setText(model.getName());
+        editBirthday.setText(model.getBirthday());
+        editPhone.setText(model.getPhone());
+        editCode.setText(model.getCode());
+        editAddress.setText(model.getAddress());
     }
 
     private void onInit() {

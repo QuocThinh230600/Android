@@ -86,6 +86,7 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
             @Override
             public void onClick(View view) {
                 remove(model);
+                notifyDataSetChanged();
             }
         });
 

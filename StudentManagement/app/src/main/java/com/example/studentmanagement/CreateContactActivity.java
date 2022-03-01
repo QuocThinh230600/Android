@@ -11,13 +11,8 @@ import com.example.studentmanagement.model.ContactModel;
 
 public class CreateContactActivity extends AppCompatActivity {
 
-    Button btnSave;
-    Button btnCancel;
-    EditText editName;
-    EditText editBirthday;
-    EditText editPhone;
-    EditText editCode;
-    EditText editAddress;
+    Button btnSave, btnCancel;
+    EditText editName, editBirthday, editPhone, editCode, editAddress;
     String mName = "", mBirthday = "", mPhone = "", mCode = "", mAddress = "";
 
     @Override
