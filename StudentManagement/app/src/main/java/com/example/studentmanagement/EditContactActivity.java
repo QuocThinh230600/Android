@@ -7,12 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.studentmanagement.model.ContactModel;
 
+import java.util.List;
+
 public class EditContactActivity extends AppCompatActivity {
 
+    private List<ContactModel> mList;
     int position = 0;
+
     Button btnEditUpdate, btnEditCancel;
     EditText editName, editBirthday, editPhone, editCode, editAddress;
     String mName = "", mBirthday = "", mPhone = "", mCode = "", mAddress = "";
@@ -30,8 +35,10 @@ public class EditContactActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ContactModel model = ValidateForm();
                 if(model != null){
-                    ContactActivity.modelList.add(position, model);
+                    ContactActivity.modelList.remove(position);
+                    ContactActivity.modelList.add(position,model);
                     ContactActivity.adapter.notifyDataSetChanged();
+                    Toast.makeText(EditContactActivity.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
@@ -40,18 +47,21 @@ public class EditContactActivity extends AppCompatActivity {
         btnEditCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent intent = new Intent(EditContactActivity.this, ContactActivity.class);
+                startActivity(intent);
             }
         });
     }
 
     private ContactModel ValidateForm(){
         int id = ContactActivity.modelList.get(ContactActivity.modelList.size() - 1).getId() + 1;
+
         mName     = editName.getText().toString();
         mBirthday = editBirthday.getText().toString();
         mPhone    = editPhone.getText().toString();
         mCode     = editCode.getText().toString();
         mAddress  = editAddress.getText().toString();
+
         String errorText = "null";
 
         if(mName.length() < 1){

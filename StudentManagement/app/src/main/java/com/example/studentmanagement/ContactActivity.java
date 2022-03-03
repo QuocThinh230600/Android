@@ -44,18 +44,18 @@ public class ContactActivity extends AppCompatActivity {
 
     private void onSetData() {
         modelList = new ArrayList<>();
-        modelList.add(new ContactModel(0, "thinh 0", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "0"));
-        modelList.add(new ContactModel(1, "thinh 1", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "1"));
-        modelList.add(new ContactModel(2, "thinh 2", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "2"));
-        modelList.add(new ContactModel(3, "thinh 3", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "3"));
-        modelList.add(new ContactModel(4, "thinh 4", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "4"));
-        modelList.add(new ContactModel(5, "thinh 5", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "5"));
-        modelList.add(new ContactModel(6, "thinh 6", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "6"));
-        modelList.add(new ContactModel(7, "thinh 7", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "7"));
-        modelList.add(new ContactModel(8, "thinh 8", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "8"));
-        modelList.add(new ContactModel(9, "thinh 9", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "9"));
-        modelList.add(new ContactModel(10, "thinh 10", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "10"));
-        modelList.add(new ContactModel(11, "thinh 11", "23/06/2000", "+84 779 803 198", "Tp.HCM" , "11"));
+        modelList.add(new ContactModel(0, "thinh 0", "23/06/2000", "+84 779 803 198", "0" , "Tp.HCM"));
+        modelList.add(new ContactModel(1, "thinh 1", "23/06/2000", "+84 779 803 198", "1" , "Tp.HCM"));
+        modelList.add(new ContactModel(2, "thinh 2", "23/06/2000", "+84 779 803 198", "2" , "Tp.HCM"));
+        modelList.add(new ContactModel(3, "thinh 3", "23/06/2000", "+84 779 803 198", "3" , "Tp.HCM"));
+        modelList.add(new ContactModel(4, "thinh 4", "23/06/2000", "+84 779 803 198", "4" , "Tp.HCM"));
+        modelList.add(new ContactModel(5, "thinh 5", "23/06/2000", "+84 779 803 198", "5" , "Tp.HCM"));
+        modelList.add(new ContactModel(6, "thinh 6", "23/06/2000", "+84 779 803 198", "6" , "Tp.HCM"));
+        modelList.add(new ContactModel(7, "thinh 7", "23/06/2000", "+84 779 803 198", "7" , "Tp.HCM"));
+        modelList.add(new ContactModel(8, "thinh 8", "23/06/2000", "+84 779 803 198", "8" , "Tp.HCM"));
+        modelList.add(new ContactModel(9, "thinh 9", "23/06/2000", "+84 779 803 198", "9" , "Tp.HCM"));
+        modelList.add(new ContactModel(10, "thinh 10", "23/06/2000", "+84 779 803 198", "10" , "Tp.HCM"));
+        modelList.add(new ContactModel(11, "thinh 11", "23/06/2000", "+84 779 803 198", "11" , "Tp.HCM"));
     }
 
     private void onInit() {

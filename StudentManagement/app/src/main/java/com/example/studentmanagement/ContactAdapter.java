@@ -69,7 +69,7 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
         viewHolder.imageViewPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_CALL);
+                Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:" + model.getPhone()));
                 mContext.startActivity(intent);
             }
@@ -79,6 +79,7 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, EditContactActivity.class);
                 intent.putExtra("Update_Item", model);
+                intent.putExtra("POS", position);
                 mContext.startActivity(intent);
             }
         });

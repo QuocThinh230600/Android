@@ -1,6 +1,8 @@
 package com.example.studentmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +34,7 @@ public class CreateContactActivity extends AppCompatActivity {
                     ContactActivity.adapter.notifyDataSetChanged();
                     Toast.makeText(CreateContactActivity.this, "thêm thành công", Toast.LENGTH_SHORT).show();
                     onClearForm();
+                    finish();
                 }
             }
         });
@@ -39,7 +42,8 @@ public class CreateContactActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent intent = new Intent(CreateContactActivity.this, ContactActivity.class);
+                startActivity(intent);
             }
         });
     }

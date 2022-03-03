@@ -4,21 +4,21 @@ import java.io.Serializable;
 
 public class ContactModel implements Serializable {
 
-    public ContactModel(int mId, String mName, String mBirthday, String mPhone, String mAddress, String mCode){
+    public ContactModel(int mId, String mName, String mBirthday, String mPhone, String mCode, String mAddress){
         this.Id       = mId;
         this.Name     = mName;
         this.Birthday = mBirthday;
         this.Phone    = mPhone;
-        this.Address  = mAddress;
         this.Code     = mCode;
+        this.Address  = mAddress;
     }
 
     private int Id;
     private String Name;
     private String Birthday;
     private String Phone;
-    private String Address;
     private String Code;
+    private String Address;
 
     public int getId() {
         return Id;
