@@ -20,4 +20,6 @@
     <string name="Save">Save</string>
     <string name="Cancel">Cancel</string>
     <string name="Update">Update</string>
+    <string name="Menu">Menu</string>
+    <string name="Contact">Contact</string>
 </resources>

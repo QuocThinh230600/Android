@@ -22,7 +22,7 @@
             android:exported="false" />
         <activity
             android:name=".ContactActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -36,4 +36,5 @@
             android:name=".MainActivity"
             android:exported="false" />
     </application>
+
 </manifest>
